@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<!-- {% static '/cs/style.css' %} -->
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.png' %}" alt="">
+        <span class="d-none d-lg-block">NiceAdmin</span>
+      </a> -->
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{% static 'assets/img/profile-img.jpg' %}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Kevin Anderson</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'index' %}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <hr>
+
+      {% for entity in entities %}
+
+      {% if entity.entity_name == entity_name %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'journal' entity.entity_name %}">
+          <i class="bi bi-journal-text"></i>
+          <span>{{entity_name}}</span>
+        </a>
+      </li>
+
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'journal' entity.entity_name %}">
+          <i class="bi bi-journal-text"></i>
+          <span>{{entity.entity_name}}</span>
+        </a>
+      </li><!-- End Attendance Page Nav -->
+            
+      {% endif %}
+      {% endfor %}
+    </ul>
+
+  </aside>
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>{{entity_name}}</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item">{{entity_name}}</li>
+          <li class="breadcrumb-item active">Add Transaction</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+{% for message in messages %}
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle me-1"></i>
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+{% endfor %}
+
+          <div class="card">
+            <div class="card-body">
+
+              <br>
+              <center>
+                <div class="btn-group" role="group" aria-label="Basic example"
+                  style="box-shadow:0px 15px 20px rgb(200, 197, 240);">
+                  <a href="{% url 'journal' entity_name %}"><button type="button" class="btn btn-primary"
+                      style="border-radius:6px 0px 0px 6px;height:100%">Journal</button></a>
+                  <a><button type="button" class="btn btn-primary"
+                      style="background-color: rgb(0, 0, 197);border-radius:0px;" href="{% url 'index' %}">Edit
+                      Transaction</button></a>
+                  <a href="{% url 'balance sheet' entity_name %}"><button type="button" class="btn btn-primary"
+                      style="border-radius:0px 6px 6px 0px;">Balance Sheet</button></a>
+                </div>
+              </center>
+              
+              <h5 name='hhh' class="card-title">Enter Transaction Details</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="date" class="col-sm-2 col-form-label">Date</label>
+                  <div class="col-sm-7">
+                    <input type="date" value='{{transaction.date}}' name='date' id="date" class="form-control" placeholder="date....">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="r_v_number" class="col-sm-2 col-form-label">Reciept/Voucher Number</label>
+                  <div class="col-sm-7">
+                    <input type="number" name='r_v_number' id="r_v_number" class="form-control"
+                      placeholder="r_v_number...." value='{{transaction.r_v_number}}'>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="item" class="col-sm-2 col-form-label">Item</label>
+                  <div class="col-sm-7">
+                    <input type="text" name='item' id="item" class="form-control" placeholder="item..." value='{{transaction.item}}'>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label" for="account">Account</label>
+                  <div class="col-lg-7">
+                    <div class="row">
+                      <div class="col-11">
+                        <select class="form-select" name='account' id='account' aria-label="Default select example"
+                          required>
+                          <!-- <option selected>Select Account</option> -->
+                          {% for account in account_names %}
+
+                          {% if account.ac_name == transaction.account.ac_name %}
+                          <option value="{{account.ac_name}}" name="account" selected>{{account.ac_name}}</option>
+                          
+                          {% else %}
+                          <option value="{{account.ac_name}}" name="account">{{account.ac_name}}</option>
+                          
+                          {% endif %}
+                          {% endfor %}
+                          <!-- <option value="2" name="account">Two</option>
+                        <option value="3" name="account">Three</option> -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="debit" class="col-sm-2 col-form-label">Debit Amount</label>
+                  <div class="col-sm-7">
+                    <input type="number" name='debit' id="debit" class="form-control" placeholder="Debit Amount...."
+                      style="background-color:rgb(255, 146, 146);" value='{{transaction.debit}}'>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="credit" class="col-sm-2 col-form-label">Credit Amount</label>
+                  <div class="col-sm-7">
+                    <input type="number" style="background-color:rgb(97, 247, 97);" name='credit' id="credit"
+                      class="form-control" placeholder="Credit Amount...." value='{{transaction.credit}}'>
+                  </div>
+                </div>
+                <div class="d-grid gap-2 mt-3">
+                  <input type="submit" value="Update Transaction" name='edit_transaction_btn' class="btn btn-outline-primary"
+                    style="margin-top:10px">
+                </div>
+              </form>
+
+              <!-- 
+                </div>
+                <div class="tab-pane fade" id="bordered-contact" role="tabpanel" aria-labelledby="contact-tab">
+                  dolor.
+                </div>
+              </div> -->
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+  <div class="modal fade" id="basicModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a new Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="post" action="">
+          {% csrf_token %}
+          <div class="modal-body">
+            <div class="row mb-3">
+              <label for="item" class="col-sm-4 col-form-label">Name of Account</label>
+              <div class="col-sm-8">
+                <input type="text" name='new_ac_name' class="form-control" placeholder="account name">
+                <input type="hidden" nam="entity_name" value="{{entity_name}}">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-4 col-form-label" for="is_loan_ac">Is Loan Account?</label>
+              <div class="col-sm-8">
+                <select class="form-select" name='is_loan_ac' id='account'>
+                  <option value='False' name="is_loan_ac" selected>NO</option>
+                  <option value='True' name="is_loan_ac">YES</option>
+                </select>
+              </div>
+            </div>
+
+
+            <!-- Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos. -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            <button type="submit" name='account_add_btn' class="btn btn-outline-primary">submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div><!-- End Basic Modal-->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/chart.js/chart.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
