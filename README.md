@@ -1,10 +1,10 @@
-# Accountanting_management_django
+# 
  
 <!-- <p align="center">
   <a href="" rel="noopener">
  <img src="https://i.imgur.com/AZ2iWek.png" alt="Project logo"></a>
 </p> -->
-<h1 align="center">Django Hospital Appointment</h1>
+<h1 align="center">Accountanting Management App with django</h1>
 
 
 <p > An accounting web app built with python.
