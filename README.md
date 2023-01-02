@@ -53,6 +53,23 @@ In this project there are mainly 3 database tables named <b>Entities, Account_na
 - [Django](https://expressjs.com/) - Web Backend Framework
 - [Bootstrap](https://vuejs.org/) - Front-End
 
+# Screenshots 
+
+<table>
+<tr>
+ <td><img src='screenshots/ss (3).png'></td><td><img src='screenshots/ss (1).png'></td>
+</tr>
+<tr>
+ <td><img src='screenshots/ss (4).png'></td><td><img src='screenshots/ss (5).png'></td>
+</tr>
+<tr>
+ <td><img src='screenshots/ss (6).png'></td><td><img src='screenshots/ss (7).png'></td>
+</tr>
+<tr>
+ <td><img src='screenshots/ss (8).png'></td>
+</tr>
+
+</table>
 <!-- ## 📷 Screenshots
 <img src='Screenshot (58).png'>
 <img src='Screenshot (59).png'>
