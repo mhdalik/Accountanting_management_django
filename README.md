@@ -7,13 +7,13 @@
 <h1 align="center">Accountanting Management App with django</h1>
 
 
-<p > An accounting web app built with python.
- - Record all transactions of a  multipl entity/bussiness etc.
- - View journal, balance sheet
- - Print journal, balance sheet
+<ol > An accounting web app built with python.
+ <li> Record all transactions of a  multipl entity/bussiness etc.</li>
+ <li> View journal, balance sheet</li>
+ <li> Print journal, balance sheet</li>
 
 
-</p>
+</ol>
 
 # 🧱 Database Structure <a name = ""></a>
 
