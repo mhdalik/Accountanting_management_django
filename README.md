@@ -66,7 +66,7 @@ In this project there are mainly 3 database tables named <b>Entities, Account_na
  <td><img src='screenshots/ss (6).png'></td><td><img src='screenshots/ss (7).png'></td>
 </tr>
 <tr>
- <td><img src='screenshots/ss (8).png'></td>
+ <td><img src='screenshots/ss (8).png'></td><td><img src='screenshots/ss (9).png'></td>
 </tr>
 
 </table>
