@@ -40,7 +40,7 @@ An simple accounting web app built with python
  <tr><td> index </td></tr>
 </table>
 
-# 🧱 Database Structure <a name = ""></a>
+# 📂 Database Structure <a name = ""></a>
 
 In this project there are mainly 3 database tables named <b>Entities, Account_names and Journal</b>
 
