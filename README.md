@@ -49,9 +49,10 @@ In this project there are mainly 3 database tables named <b>Entities, Account_na
 
 # ⛏️ Built With <a name = "tech_stack"></a>
 
-- [Sqlite](https://www.mongodb.com/) - Database
-- [Django](https://expressjs.com/) - Web Backend Framework
-- [Bootstrap](https://vuejs.org/) - Front-End
+- [Sqlite](https://www.sqlite.com/) - Database
+- [Django](https://django.com/) - Web Backend Framework
+- [](www.python.org) - programming language 
+- [Bootstrap](bootstrap.com) - Front-End
 
 # Screenshots 
 
