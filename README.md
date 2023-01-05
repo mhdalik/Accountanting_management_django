@@ -51,7 +51,7 @@ In this project there are mainly 3 database tables named <b>Entities, Account_na
 
 - [Sqlite](https://www.sqlite.com/) - Database
 - [Django](https://django.com/) - Web Backend Framework
-- [](www.python.org) - programming language 
+- [Python](www.python.org) - programming language 
 - [Bootstrap](bootstrap.com) - Front-End
 
 # Screenshots 
